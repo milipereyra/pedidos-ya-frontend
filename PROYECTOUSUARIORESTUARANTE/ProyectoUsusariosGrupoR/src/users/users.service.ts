@@ -18,8 +18,8 @@ import { Repository } from 'typeorm';
 @Injectable()
 export class UsersService {
   repository = UserEntity;
-  private readonly RolService: RolService
-  constructor(private jwtService: JwtService) {}
+  
+  constructor(private jwtService: JwtService,private readonly RolService: RolService) {}
 
   async refreshToken(refreshToken: string) {
     return this.jwtService.refreshToken(refreshToken);
@@ -71,13 +71,14 @@ export class UsersService {
     return Service
   }
 
-  async assignRol(id:number,idRol:number): Promise<void>{
+  async assignRol(idUser:number,idRol:number): Promise<void>{
+    let id = idUser;
     let user = await this.repository.findOneBy({id});
-    let rol = await this.RolService.findOne(idRol)
+    let rol = await this.RolService.findOne(idRol);
     if(!user){
-      throw new NotFoundException(`user not exist with the id: ${id}`);
+      throw new NotFoundException(`user not exist with the id: ${idUser}`);
     }else if (!rol){
-      throw new NotFoundException(`rol not exist with the id: ${id}`);
+      throw new NotFoundException(`rol not exist with the id: ${idUser}`);
     }
     
     user.rol = rol;

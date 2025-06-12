@@ -3,6 +3,7 @@ import { LoginDTO } from '../interfaces/login.dto';
 import { RegisterDTO } from '../interfaces/register.dto';
 import { Request } from 'express';
 import { RequestWithUser } from 'src/interfaces/request-user';
+import { PermisosDTO } from 'src/interfaces/permisos.dto';
 export declare class UsersController {
     private service;
     constructor(service: UsersService);
@@ -21,5 +22,5 @@ export declare class UsersController {
         accessToken: string;
         refreshToken: string;
     }>;
-    assignRol(request: Request, idUser: number, idRol: number): Promise<void>;
+    assignRol(request: Request, Body: PermisosDTO): Promise<void>;
 }

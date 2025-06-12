@@ -4,11 +4,12 @@ import { UserI } from 'src/interfaces/user.interface';
 import { UserEntity } from '../entities/user.entity';
 import { PermissionEntity } from 'src/entities/permision.entity';
 import { JwtService } from 'src/jwt/jwt.service';
+import { RolService } from 'src/rol/rol.service';
 export declare class UsersService {
     private jwtService;
-    repository: typeof UserEntity;
     private readonly RolService;
-    constructor(jwtService: JwtService);
+    repository: typeof UserEntity;
+    constructor(jwtService: JwtService, RolService: RolService);
     refreshToken(refreshToken: string): Promise<{
         accessToken: string;
         refreshToken: string;
@@ -23,5 +24,5 @@ export declare class UsersService {
     }>;
     findByEmail(email: string): Promise<UserEntity>;
     findPermissions(id: number): Promise<PermissionEntity[]>;
-    assignRol(id: number, idRol: number): Promise<void>;
+    assignRol(idUser: number, idRol: number): Promise<void>;
 }

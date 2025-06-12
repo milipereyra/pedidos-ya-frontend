@@ -19,6 +19,7 @@ const login_dto_1 = require("../interfaces/login.dto");
 const register_dto_1 = require("../interfaces/register.dto");
 const auth_middleware_1 = require("../middlewares/auth.middleware");
 const permissions_decorator_1 = require("../middlewares/decorators/permissions.decorator");
+const permisos_dto_1 = require("../interfaces/permisos.dto");
 let UsersController = class UsersController {
     constructor(service) {
         this.service = service;
@@ -40,8 +41,8 @@ let UsersController = class UsersController {
     refreshToken(request) {
         return this.service.refreshToken(request.headers['refresh-token']);
     }
-    async assignRol(request, idUser, idRol) {
-        return this.service.assignRol(idUser, idRol);
+    async assignRol(request, Body) {
+        return this.service.assignRol(Body.idUser, Body.idRol);
     }
 };
 exports.UsersController = UsersController;
@@ -86,11 +87,11 @@ __decorate([
 __decorate([
     (0, common_1.UseGuards)(auth_middleware_1.AuthGuard),
     (0, permissions_decorator_1.Permissions)(['assign_rol']),
-    (0, common_1.Post)(),
+    (0, common_1.Post)('asignar-rol'),
     __param(0, (0, common_1.Req)()),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, Number, Number]),
+    __metadata("design:paramtypes", [Object, permisos_dto_1.PermisosDTO]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "assignRol", null);
 exports.UsersController = UsersController = __decorate([

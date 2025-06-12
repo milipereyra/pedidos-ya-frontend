@@ -20,7 +20,7 @@ INSERT INTO "role_permission"("idRol", "idPermission") VALUES
     (2, 1),
     (2, 2);
 
-
+--cat lmd.sql | docker compose exec -T db psql
 
 
 

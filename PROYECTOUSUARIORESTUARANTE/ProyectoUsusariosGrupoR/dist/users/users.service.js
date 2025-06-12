@@ -14,9 +14,11 @@ const common_1 = require("@nestjs/common");
 const user_entity_1 = require("../entities/user.entity");
 const bcrypt_1 = require("bcrypt");
 const jwt_service_1 = require("../jwt/jwt.service");
+const rol_service_1 = require("../rol/rol.service");
 let UsersService = class UsersService {
-    constructor(jwtService) {
+    constructor(jwtService, RolService) {
         this.jwtService = jwtService;
+        this.RolService = RolService;
         this.repository = user_entity_1.UserEntity;
     }
     async refreshToken(refreshToken) {
@@ -62,14 +64,15 @@ let UsersService = class UsersService {
         var Service = await this.RolService.findPermissions(id);
         return Service;
     }
-    async assignRol(id, idRol) {
+    async assignRol(idUser, idRol) {
+        let id = idUser;
         let user = await this.repository.findOneBy({ id });
         let rol = await this.RolService.findOne(idRol);
         if (!user) {
-            throw new common_1.NotFoundException(`user not exist with the id: ${id}`);
+            throw new common_1.NotFoundException(`user not exist with the id: ${idUser}`);
         }
         else if (!rol) {
-            throw new common_1.NotFoundException(`rol not exist with the id: ${id}`);
+            throw new common_1.NotFoundException(`rol not exist with the id: ${idUser}`);
         }
         user.rol = rol;
         await this.repository.save(user);
@@ -78,6 +81,6 @@ let UsersService = class UsersService {
 exports.UsersService = UsersService;
 exports.UsersService = UsersService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [jwt_service_1.JwtService])
+    __metadata("design:paramtypes", [jwt_service_1.JwtService, rol_service_1.RolService])
 ], UsersService);
 //# sourceMappingURL=users.service.js.map

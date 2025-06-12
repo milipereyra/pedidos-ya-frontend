@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { menuImports } from './menu/providers';
 import { RestaurantImports } from './restaurant/restaurantProviders';
+import { AuthGuard } from './middlewares/auth.middleware';
+import { AxiosService } from './axios/axios';
 
 
 @Module({
@@ -11,9 +13,9 @@ import { RestaurantImports } from './restaurant/restaurantProviders';
     TypeOrmModule.forRoot({
         type: 'postgres',
         host:'localhost',
-        port: 5433,
+        port: 5434,
         username:'postgres',
-        password: '15726',
+        password: 'postgres',
         database:'restaurant',
         autoLoadEntities: true,
         synchronize: true,
@@ -21,6 +23,6 @@ import { RestaurantImports } from './restaurant/restaurantProviders';
     TypeOrmModule.forFeature([...menuImports.entities,...RestaurantImports.entities])
   ],
   controllers: [AppController,...RestaurantImports.controllers,...menuImports.controllers],
-  providers: [AppService,...RestaurantImports.providers,...menuImports.providers],
+  providers: [AuthGuard,AxiosService,AppService,...RestaurantImports.providers,...menuImports.providers],
 })
 export class AppModule {}

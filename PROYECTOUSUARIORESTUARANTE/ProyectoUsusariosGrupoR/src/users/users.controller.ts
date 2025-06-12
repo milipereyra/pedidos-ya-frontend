@@ -14,6 +14,7 @@ import { Request } from 'express';
 import { AuthGuard } from '../middlewares/auth.middleware';
 import { RequestWithUser } from 'src/interfaces/request-user';
 import {Permissions} from '../middlewares/decorators/permissions.decorator'
+import { PermisosDTO } from 'src/interfaces/permisos.dto';
 
 @Controller('user')
 export class UsersController {
@@ -54,8 +55,8 @@ export class UsersController {
   }
   @UseGuards(AuthGuard)
   @Permissions(['assign_rol'])
-  @Post()
-    async assignRol(@Req()request: Request,@Body() idUser: number, idRol: number){ 
-        return this.service.assignRol(idUser,idRol)
+  @Post('asignar-rol')
+    async assignRol(@Req()request: Request,@Body() Body: PermisosDTO){ 
+        return this.service.assignRol(Body.idUser,Body.idRol)
     }
 }
