@@ -1,4 +1,4 @@
-# PedidosYa
+# PedidosYa - EntregaN°1 ANGULAR - GRUPO R
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.2.
 
