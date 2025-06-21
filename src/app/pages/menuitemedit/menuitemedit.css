@@ -1,0 +1,206 @@
+.title {
+    display: flex;
+    align-items: center; 
+    margin-top: 15px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para la imagen del logo (el <img class="logo">) */
+.logo {
+    width: 50px;
+    height: 50px; 
+    margin-right: 10px; /* Espacio entre el logo y el texto */
+  
+}
+
+/* Estilos para el texto del tÃ­tulo (el <span> dentro del h1.title) */
+.title  {
+    font-size: 36px;
+    font-weight: bold;
+    color: #dd6117;
+    text-shadow: 1px 1px 3px gray;
+    font-family: 'Arial', sans-serif;
+
+}
+
+
+.rectangle {
+    background-color: #e0b49c;
+    width: 90%; /* Adjust as needed */
+    max-width: 1270px;
+    border-radius: 15px;
+    padding: 20px;
+    height: 490px;
+    margin: auto;
+    padding: 70px 20px 20px 20px;
+}
+
+.item-container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.item-image img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid #b64913;
+    
+    
+}
+
+.item-form {
+    flex-grow: 1;
+    font-family: 'Arial', sans-serif;
+}
+
+.item-title {
+  display: flex;
+  align-items: center; 
+  gap: 0px;
+  margin-bottom: 15px;
+}
+
+.item-title  {
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0;
+  margin: none;
+  box-shadow: none;
+  width: auto; 
+  flex-grow: 1;
+
+  font-family: Arial, sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  color: #CC6633;
+  text-transform: uppercase;
+  text-decoration: underline;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+
+
+.item-title input[type="text"]:not([disabled]) {
+  border: 1px solid #ccc; /* Light gray border */
+  background-color: white;
+  border-radius: 4px;
+  padding: 8px 12px; /* Add some padding back */
+  font-size: 16px; /* Smaller font for editing */
+  font-weight: normal;
+  color: black;
+  text-transform: none; /* Revert to normal casing */
+  text-decoration: none; /* Remove underline */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+
+/* Styling for the edit icon button */
+.item-title .edit-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 24px; /* Adjust size of the emoji icon */
+  line-height: 1; /* Align emoji properly */
+  color: black; /* Black icon color for PIZZA FUGAZZETA style */
+  /* Remove any default button styling if present */
+  appearance: none; /* For cross-browser consistency */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.edit-icon {
+    font-size: 25px;
+    margin-left: 0px;
+    margin-right: 50px;
+    background: none; 
+    border: none;
+    color: inherit; 
+    cursor: pointer;
+    box-shadow: none;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-family: 'Arial', sans-serif;
+    
+}
+
+textarea,
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #5e5e5e;
+    border-radius: 8px;
+    resize: none;
+    font-size: 16px;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+textarea {
+    height: 80px;
+    font-family: 'Arial', sans-serif;
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+    
+}
+/* Botones */
+.buttons {
+  display: flex;
+    justify-content: center;
+    gap: 30px; /* Increased gap between buttons */
+    margin-top: 30px; /* Space above buttons */
+}
+
+.gray-btn, .orange-btn {
+  text-align: center;
+    border: none;
+    width: 130px; /* Slightly wider buttons */
+    height: 45px; /* Slightly taller buttons */
+    padding: 0.5rem 1rem;
+    border-radius: 8px; /* Consistent border-radius with inputs */
+    cursor: pointer;
+    font-size: 1.1rem; /* Slightly larger font size */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gray-btn {
+  background-color: #ccc;
+  color: black;
+}
+
+.orange-btn {
+  background-color: #f05a00;
+  color: white;
+}
+
+.gray-btn:hover {
+  background-color: #b3b3b3;
+}
+
+.orange-btn:hover {
+  background-color: #cc4400;
+}
+
+
+.gray-btn:active,
+.orange-btn:active {
+    transform: scale(0.96);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}

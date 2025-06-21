@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="fondo">
+        <div class="textologo">
+            <img src="../../../assets/images/logo.png" alt="" class="logo">
+            <h2 class="titulo">Menús disponibles</h2>
+        </div>
+        <div class="centro">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th> 
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th>Imagen</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(item of items;track $index){
+                    <tr>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.description }}</td>
+                        <td>${{ item.price }}</td>
+                        <td class="img-cell">
+                            <img [src]="item.imageUrl"  />
+                        </td>
+        
+                        <td class="botones-accion">
+                          <a href="http://localhost:4200/menuitemedit"><i class="fas fa-pencil" ></i> </a>
+                          <a href="#"><i class="fas fa-eye"></i></a>
+                          <a href="#"><i class="fas fa-trash"></i></a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="paginacion">
+                <button class="btn"><i class="fas fa-arrow-left" style="color: white;"></i></button>
+                <input type="radio" id="pag1" name="pagina" >
+                <label for="">1</label>
+                <input type="radio" id="pag2" name="pagina" checked>
+                <label for="">2</label>
+                <input type="radio" id="pag3" name="pagina" >
+                <label for="">3</label>
+                <button class="btn"><i class="fas fa-arrow-right" style="color: white;"></i></button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
